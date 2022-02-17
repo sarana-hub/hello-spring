@@ -11,25 +11,23 @@ public class HelloController {
 
     @GetMapping("hello")
     public String hello(Model model) {
-        model.addAttribute("data", "hello!!");
-        return "hello";
-        //컨트롤러에서 리턴 값으로 문자를 반환하면
-        //뷰 리졸버( viewResolver)가 화면을 찾아서 처리
+        model.addAttribute("data", "sara!!");   // model(data:sara!!)
+        return "hello";     //컨트롤러에서 리턴 값으로 문자를 반환하면,
+        // viewResolver가 화면(templates/hello.html)을 찾아서 처리
     }
 
     @GetMapping("hello-mvc")
     public String helloMvc(@RequestParam("name") String name, Model model) {
-        model.addAttribute("name", name);
+        model.addAttribute("name", name);   // model(name:spring)
         return "hello-template";
     }
-
+    // http://localhost:8080/hello-mvc?name=spring
 
     /** API - @ResponseBody 문자 반환*/
     @GetMapping("hello-string")
     @ResponseBody
     public String helloString(@RequestParam("name") String name) {
-        return "hello " + name;
-        //@ResponseBody 를 사용하면, (뷰 리졸버를 사용하지 않음)
+        return "hello " + name;    //@ResponseBody 를 사용하고, 문자를 반환하면
         //HTTP의 BODY에 문자 내용을 직접 반환
     }
 
@@ -39,8 +37,7 @@ public class HelloController {
     public Hello helloApi(@RequestParam("name") String name) {
         Hello hello = new Hello();
         hello.setName(name);
-        return hello;
-        //@ResponseBody 를 사용하고, 객체를 반환하면
+        return hello;   //@ResponseBody 를 사용하고, 객체를 반환하면
         // 객체가 JSON으로 변환됨
     }
     class Hello{
@@ -52,4 +49,5 @@ public class HelloController {
             this.name = name;
         }
     }
+
 }
