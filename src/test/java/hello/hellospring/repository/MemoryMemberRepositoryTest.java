@@ -18,6 +18,7 @@ public class MemoryMemberRepositoryTest {
         repository.clearStore();
         // 메모리 DB에 저장된 데이터를 삭제
     }
+    
     //테스트는 (테스트 순서에 관계없이) 각각 독립적으로 실행되어야 한다.
 
     @Test
