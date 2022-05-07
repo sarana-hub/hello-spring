@@ -17,6 +17,7 @@ import java.util.Optional;
 //@Component
 @Transactional
 public class MemberService {
+    //private final MemberRepository memberRepository= new MemoryMemberRepository();;
     private final MemberRepository memberRepository;
 
     //@Autowired
@@ -32,7 +33,7 @@ public class MemberService {
         long start=System.currentTimeMillis();
 
         try{
-            validateDuplicateMember(member);  //Extract method로 자동생성
+            validateDuplicateMember(member);  //중복(같은이름회원) 검증
 
             memberRepository.save(member);
             return member.getId();
@@ -44,9 +45,9 @@ public class MemberService {
 
     }
     private void validateDuplicateMember(Member member) {
-        //중복회원(같은이름회원) 검증
+        //중복(같은이름회원) 검증
         memberRepository.findByName(member.getName())
-                .ifPresent(m -> {
+                .ifPresent(m -> {   //리포지토리에 값(같은이름)이 있으면
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
     }
@@ -54,6 +55,10 @@ public class MemberService {
     /**
      * 전체 회원 조회
      */
+    /*public List<Member> findMembers() {
+        return memberRepository.findAll();
+    }*/
+
     public List<Member> findMembers() {
         long start=System.currentTimeMillis();
         try {
@@ -66,6 +71,7 @@ public class MemberService {
     }
 
     public Optional<Member> findOne(Long memberId) {
+
         return memberRepository.findById(memberId);
     }
 }
