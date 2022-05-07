@@ -10,16 +10,15 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class MemoryMemberRepositoryTest {
+class MemoryMemberRepositoryTest {
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
+    //테스트는 (테스트 순서에 관계없이) 각각 독립적으로 실행되어야 함!
     @AfterEach      //각 테스트가 종료될 때 마다
     public void afterEach() {
         repository.clearStore();
         // 메모리 DB에 저장된 데이터를 삭제
     }
-    
-    //테스트는 (테스트 순서에 관계없이) 각각 독립적으로 실행되어야 한다.
 
     @Test
     public void save() {
@@ -28,8 +27,10 @@ public class MemoryMemberRepositoryTest {
         member.setName("spring");
         //when
         repository.save(member);
+
         //then
         Member result = repository.findById(member.getId()).get();
+        //제대로 저장됐는지 확인 후, get()으로 꺼내서, result에 저장
         assertThat(member).isEqualTo(result);
     }
     @Test
