@@ -17,8 +17,8 @@ import java.util.Optional;
 //@Component
 @Transactional
 public class MemberService {
-    //private final MemberRepository memberRepository= new MemoryMemberRepository();;
-    private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository= new MemoryMemberRepository();;
+    //private final MemberRepository memberRepository;
 
     //@Autowired
     public MemberService(MemberRepository memberRepository) {
@@ -55,11 +55,10 @@ public class MemberService {
     /**
      * 전체 회원 조회
      */
-    /*public List<Member> findMembers() {
-        return memberRepository.findAll();
-    }*/
-
     public List<Member> findMembers() {
+        return memberRepository.findAll();
+    }
+    /*public List<Member> findMembers() {
         long start=System.currentTimeMillis();
         try {
             return memberRepository.findAll();
@@ -68,10 +67,9 @@ public class MemberService {
             long timeMs=finish-start;
             System.out.println("findMembers " + timeMs + "ms");
         }
-    }
+    }*/
 
     public Optional<Member> findOne(Long memberId) {
-
         return memberRepository.findById(memberId);
     }
 }
