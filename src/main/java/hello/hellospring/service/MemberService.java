@@ -25,13 +25,13 @@ public class MemberService {
     //회원 서비스가 메모리 회원 리포지토리를 직접 생성
 
     //->회원 리포지토리의 코드가 회원 서비스 코드를 DI 가능하게 변경
-    private final MemberRepository memberRepository;
+    private MemberRepository memberRepository;
 
     /**생성자에 @Autowired 를 사용하면
      * 객체 생성 시점에 스프링 컨테이너에서 해당 스프링 빈을 찾아서 주입한다.
      * 생성자가 1개만 있으면 @Autowired 는 생략할 수 있다.
     */
-    @Autowired
+    //@Autowired
     public MemberService(MemberRepository memberRepository) {
 
         this.memberRepository = memberRepository;
@@ -51,7 +51,7 @@ public class MemberService {
             return member.getId();
         }finally {
             long finish=System.currentTimeMillis();
-            long timeMs=finish-start;
+            long timeMs=finish-start;   //회원 조회 시간(ms)
             System.out.println("join="+timeMs+"ms");
         }
 
@@ -64,22 +64,23 @@ public class MemberService {
                 });
     }
 
+
     /**
      * 전체 회원 조회
      */
-    public List<Member> findMembers() {
-        return memberRepository.findAll();
-    }
     /*public List<Member> findMembers() {
+        return memberRepository.findAll();
+    }*/
+    public List<Member> findMembers() {
         long start=System.currentTimeMillis();
         try {
             return memberRepository.findAll();
         } finally {
             long finish=System.currentTimeMillis();
-            long timeMs=finish-start;
+            long timeMs=finish-start;   //회원 조회 시간(ms)
             System.out.println("findMembers " + timeMs + "ms");
         }
-    }*/
+    }
 
     public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
