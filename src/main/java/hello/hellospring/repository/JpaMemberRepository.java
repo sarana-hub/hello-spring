@@ -6,9 +6,12 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-public class JpaMemberRepository implements MemberRepository{
-    private final EntityManager em;
 
+/**JPA 회원 리포지토리*/
+
+public class JpaMemberRepository implements MemberRepository{
+    //jpa사용하려면 EntityManager 받아야함
+    private final EntityManager em;
     public JpaMemberRepository(EntityManager em) {
         this.em = em;
     }
@@ -21,7 +24,7 @@ public class JpaMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findById(Long id) {
-        Member member = em.find(Member.class, id);
+        Member member = em.find(Member.class, id);  //조회
         return Optional.ofNullable(member);
     }
 

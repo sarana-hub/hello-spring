@@ -14,10 +14,12 @@ import java.util.Optional;
 
 /** 회원 서비스 개발*/
 
-@Service
+//@Service
 //@Component
-//@Transactional
 //@Controller
+
+@Transactional
+
 public class MemberService {
     //private final MemberRepository memberRepository= new MemoryMemberRepository();;
     //회원 서비스가 메모리 회원 리포지토리를 직접 생성
