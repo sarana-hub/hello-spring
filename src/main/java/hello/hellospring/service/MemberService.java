@@ -27,8 +27,9 @@ public class MemberService {
     //->회원 리포지토리의 코드가 회원 서비스 코드를 DI 가능하게 변경
     private MemberRepository memberRepository;
 
-    /**생성자에 @Autowired 를 사용하면
-     * 객체 생성 시점에 스프링 컨테이너에서 해당 스프링 빈을 찾아서 주입한다.
+    /**생성자 주입 방식
+     *생성자에 @Autowired 를 사용하면
+     * 객체 생성 시점에 스프링 컨테이너에서 해당 스프링 빈을 찾아서 주입
     */
     //@Autowired    //생성자가 하나면 생략 가능
     public MemberService(MemberRepository memberRepository) {
