@@ -26,12 +26,13 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+
     @GetMapping(value = "/members/new")
     public String createForm() {
         return "members/createMemberForm";
     }
 
-    /** 회원을 실제 등록하는 기능*/
+    /*회원을 실제 등록하는 기능*/
     @PostMapping(value = "/members/new")
     public String create(MemberForm form) {
         Member member = new Member();
@@ -42,11 +43,13 @@ public class MemberController {
         return "redirect:/";
     }
 
-    /** 조회 기능*/
+    /*
+    조회 기능*/
     @GetMapping(value = "/members")
     public String list(Model model) {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
         return "members/memberList";
     }
+
 }

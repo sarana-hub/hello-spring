@@ -14,12 +14,11 @@ import java.util.Optional;
 
 /** 회원 서비스 개발*/
 
-//@Service
+@Service
 //@Component
 //@Controller
 
 //@Transactional
-
 public class MemberService {
     /*private final MemberRepository memberRepository= new MemoryMemberRepository();;
       회원 서비스가 메모리 회원 리포지토리를 직접 생성
@@ -30,7 +29,7 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    /**
+/*
      * 회원가입
      */
     public Long join(Member member) {
@@ -45,7 +44,7 @@ public class MemberService {
                 });
     }
 
-    /**
+/*
      * 전체 회원 조회
      */
     public List<Member> findMembers() {
@@ -55,7 +54,7 @@ public class MemberService {
     public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
     }
-
+*/
 }
 
     /*public Long join(Member member) {
