@@ -10,10 +10,8 @@ import java.util.*;
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
-    /*
-     * 동시성 문제가 고려되어 있지 않음
-     * (실무에서는 ConcurrentHashMap, AtomicLong 사용 고려)
-     */
+    /* 동시성 문제가 고려되어 있지 않음
+     * (실무에서는 ConcurrentHashMap, AtomicLong 사용 고려)*/
 
     private static long sequence = 0L;
 
@@ -26,7 +24,7 @@ public class MemoryMemberRepository implements MemberRepository {
 
     @Override
     public Optional<Member> findById(Long id) {
-        //return store.get(id);  //을 값이 null이어도 반환할수있도록
+        //return store.get(id);을  값이 null이어도 반환할수있도록
         return Optional.ofNullable(store.get(id));
     }
 
@@ -39,10 +37,12 @@ public class MemoryMemberRepository implements MemberRepository {
 
     @Override
     public List<Member> findAll() {
+
         return new ArrayList<>(store.values());
     }
 
     public void clearStore() {
+
         store.clear();
     }
 }

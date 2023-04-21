@@ -27,6 +27,7 @@ public class HelloController {
     @GetMapping("hello-string")
     @ResponseBody   //HTTP의 BODY에 문자 내용("hello spring")을 직접 반환
     public String helloString(@RequestParam("name") String name) {
+
         return "hello " + name; //"hello spring"
     }
 
