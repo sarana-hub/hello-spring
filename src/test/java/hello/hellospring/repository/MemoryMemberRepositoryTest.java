@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.*;
 class MemoryMemberRepositoryTest {
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
-    //테스트는 테스트 순서에 관계없이, 각각 독립적으로 실행되어야 함!
+    //테스트는 테스트 순서에 관계없이, 각각 독립적으로 실행되어야 함
     @AfterEach      //각 테스트가 종료될 때 마다
     public void afterEach() {
         repository.clearStore();

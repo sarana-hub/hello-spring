@@ -7,11 +7,11 @@ import javax.persistence.Id;
 
 /** 회원 객체*/
 
-@Entity     //JPA 엔티티 매핑
+//@Entity     //JPA 엔티티 매핑
 public class Member {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
