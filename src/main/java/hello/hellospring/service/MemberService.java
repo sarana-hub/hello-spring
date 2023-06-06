@@ -7,33 +7,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 /** 회원 서비스 개발*/
 
-//@Service
 //@Component
 //@Controller
 
 //@Transactional
+
+@Service
 public class MemberService {
     /*private final MemberRepository memberRepository= new MemoryMemberRepository();
       회원 서비스가 메모리 회원 리포지토리를 직접 생성
       ->회원 리포지토리의 코드가 회원 서비스 코드를 DI 가능하게 변경*/
     private final MemberRepository memberRepository;
 
-    //@Autowired
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
 
         this.memberRepository = memberRepository;
     }
 
     /*
-     * 회원가입
-     */
+     * 회원가입*/
+
     public Long join(Member member) {
         validateDuplicateMember(member);  //중복회원(같은이름회원) 검증
         memberRepository.save(member);
@@ -47,8 +48,8 @@ public class MemberService {
     }
 
     /*
-     * 전체 회원 조회
-     */
+     * 전체 회원 조회*/
+
     public List<Member> findMembers() {
 
         return memberRepository.findAll();

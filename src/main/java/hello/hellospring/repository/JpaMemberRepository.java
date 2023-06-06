@@ -1,13 +1,13 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
-
+/*
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
 
-/**JPA 회원 리포지토리*/
+/**JPA 회원 리포지토리
 
 public class JpaMemberRepository implements MemberRepository{
     //jpa사용하려면 EntityManager 받아야함
@@ -42,4 +42,4 @@ public class JpaMemberRepository implements MemberRepository{
         return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
-}
+}*/

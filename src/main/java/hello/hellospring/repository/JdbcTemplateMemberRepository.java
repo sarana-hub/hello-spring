@@ -1,5 +1,5 @@
 package hello.hellospring.repository;
-
+/*
 import hello.hellospring.domain.Member;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
@@ -60,4 +60,4 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
             return member;
         };
     }
-}
+}*/
