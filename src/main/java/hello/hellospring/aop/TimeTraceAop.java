@@ -1,11 +1,11 @@
 package hello.hellospring.aop;
-
+/*
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-/** 시간 측정 AOP 등록*/
+/** 시간 측정 AOP 등록
 
 
 @Component
@@ -24,4 +24,4 @@ public class TimeTraceAop {
             System.out.println("END: " + joinPoint.toString() + " " + timeMs + "ms");
         }
     }
-}
+}*/

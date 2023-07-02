@@ -1,5 +1,5 @@
 package hello.hellospring.repository;
-
+/*
 import hello.hellospring.domain.Member;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 
-/* 참고만 하고 넘어가기 */
+참고만 하고 넘어가기
+
 public class JdbcMemberRepository implements MemberRepository{
 
     private final DataSource dataSource;
@@ -157,3 +158,4 @@ public class JdbcMemberRepository implements MemberRepository{
     }
 
 }
+*/

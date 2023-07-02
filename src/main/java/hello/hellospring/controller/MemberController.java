@@ -17,9 +17,10 @@ import java.util.List;
 public class MemberController {
     private final MemberService memberService;
 
+    /**생성자에 @Autowired가 있으면, 스프링이 연관된 객체를 찾아 넣어준다.*/
+    //이것이 DI(의존성 주입:객체 의존관계를 "외부에서" 넣어주는 것)
     @Autowired
     public MemberController(MemberService memberService) {
-
         this.memberService = memberService;
     }
 

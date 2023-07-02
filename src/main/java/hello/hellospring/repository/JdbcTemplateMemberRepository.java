@@ -1,3 +1,4 @@
+/*
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
@@ -61,3 +62,4 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
         };
     }
 }
+*/
