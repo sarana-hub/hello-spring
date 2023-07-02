@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest     //스프링 컨테이너와 테스트를 함께 실행
 
 @Transactional
-//테스트 시작 전에 트랜잭션을 시작하고, 테스트 완료 후에 항상 롤백한다.
-// 이렇게 하면 DB에 데이터가 남지 않으므로 다음 테스트에 영향을 주지않는다.
+/**테스트 시작 전에 트랜잭션을 시작하고, 테스트 완료 후에 항상 롤백한다 */
+//이렇게 하면 DB에 데이터가 남지 않으므로 다음 테스트에 영향을 주지않는다 ->반복 가능한 테스트 지원
 
 class MemberServiceIntegrationTest {
     @Autowired
@@ -27,6 +28,7 @@ class MemberServiceIntegrationTest {
     MemberRepository memberRepository;
 
     @Test
+    @Commit
     void join() throws Exception{
         //Given
         Member member = new Member();

@@ -13,7 +13,7 @@ public class HelloController {
     public String hello(Model model) {
         model.addAttribute("data", "sara!!");   // model(data:sara!!)
         return "hello";     //컨트롤러에서 리턴 값으로 문자를 반환하면,
-        // viewResolver가 화면(templates/hello.html)을 찾아서 처리
+        // viewResolver가 view(templates/hello.html)을 찾아서 처리
     }
 
     @GetMapping("hello-mvc")
@@ -21,31 +21,32 @@ public class HelloController {
         model.addAttribute("name", name);   // model(name:spring)
         return "hello-template";
     }
-    // http://localhost:8080/hello-mvc?name=spring
+
 
     /** API - @ResponseBody 문자 반환*/
     @GetMapping("hello-string")
-    @ResponseBody
+    @ResponseBody   //HTTP의 BODY에 문자 내용("hello spring")을 직접 반환
     public String helloString(@RequestParam("name") String name) {
-        return "hello " + name;    //@ResponseBody 를 사용하고, 문자를 반환하면
-        //HTTP의 BODY에 문자 내용을 직접 반환
+
+        return "hello " + name; //"hello spring"
     }
 
     /** API - @ResponseBody 객체 반환*/
     @GetMapping("hello-api")
-    @ResponseBody
+    @ResponseBody    //객체가 JSON으로 변환됨
     public Hello helloApi(@RequestParam("name") String name) {
         Hello hello = new Hello();
         hello.setName(name);
-        return hello;   //@ResponseBody 를 사용하고, 객체를 반환하면
-        // 객체가 JSON으로 변환됨
+        return hello;
     }
-    class Hello{
-        String name;
+    static class Hello{
+        private String name;
         public String getName() {
+
             return name;
         }
         public void setName(String name) {
+
             this.name = name;
         }
     }
