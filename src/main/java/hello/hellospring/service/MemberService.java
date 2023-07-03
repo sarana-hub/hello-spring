@@ -13,13 +13,12 @@ import java.util.Optional;
 
 /** 회원 서비스 개발*/
 
-@Service
+
 //@Component
 //@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
