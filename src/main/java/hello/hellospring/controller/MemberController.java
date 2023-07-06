@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-/** 회원 등록 폼 컨트롤러*/
-/*회원 컨트롤러에 의존관계 추가*/
+
 
 @Controller
 public class MemberController {
@@ -24,24 +23,27 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @GetMapping(value = "/members/new")
+    /** 회원 등록 폼*/
+    @GetMapping("/members/new")
     public String createForm() {
         return "members/createMemberForm";
     }
 
-    /** 회원을 실제 등록하는 기능*/
-    @PostMapping(value = "/members/new")
+    /** 회원을 등록하는 기능*/
+    @PostMapping("/members/new")
     public String create(MemberForm form) {
         Member member = new Member();
         member.setName(form.getName());
 
         //System.out.println("member= "+member.getName());
+
         memberService.join(member);
-        return "redirect:/";
+        return "redirect:/";  //홈화면으로
     }
 
+
     /** 조회 기능*/
-    @GetMapping(value = "/members")
+    @GetMapping("/members")
     public String list(Model model) {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
