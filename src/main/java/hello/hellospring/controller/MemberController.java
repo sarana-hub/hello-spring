@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 
-
 @Controller
 public class MemberController {
     private final MemberService memberService;
@@ -28,6 +27,7 @@ public class MemberController {
     public String createForm() {
         return "members/createMemberForm";
     }
+
 
     /** 회원을 등록하는 기능*/
     @PostMapping("/members/new")
