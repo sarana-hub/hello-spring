@@ -15,20 +15,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+
 @SpringBootTest     //스프링 컨테이너와 테스트를 함께 실행
-
-@Transactional
-/**테스트 시작 전에 트랜잭션을 시작하고, 테스트 완료 후에 항상 롤백한다 */
-//이렇게 하면 DB에 데이터가 남지 않으므로 다음 테스트에 영향을 주지않는다 ->반복 가능한 테스트 지원
-
+@Transactional //테스트 시작 전에 트랜잭션을 시작하고, 테스트 완료 후에 항상 롤백한다
 class MemberServiceIntegrationTest {
-    @Autowired
-    MemberService memberService;
-    @Autowired
-    MemberRepository memberRepository;
+
+    //@Autowired로 의존관계 넣어주기 (DI)
+    @Autowired MemberService memberService;
+    @Autowired MemberRepository memberRepository;
 
     @Test
-    @Commit
     void join() throws Exception{
         //Given
         Member member = new Member();
@@ -37,8 +33,8 @@ class MemberServiceIntegrationTest {
         Long saveId = memberService.join(member);
         //Then
         Member findMember = memberService.findOne(saveId).get();
-        assertThat(member.getName()).isEqualTo(findMember.getName());
-        //assertEquals(member.getName(), findMember.getName());
+        //assertThat(member.getName()).isEqualTo(findMember.getName());
+        assertEquals(member.getName(), findMember.getName());
     }
 
     @Test
@@ -53,12 +49,7 @@ class MemberServiceIntegrationTest {
 
         IllegalStateException e =assertThrows(
                 IllegalStateException.class, () -> memberService.join(member2));
+
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-        /*try{
-            memberService.join(member2);
-            fail();
-        } catch (IllegalStateException e){
-            assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-        }*/
     }
 }
