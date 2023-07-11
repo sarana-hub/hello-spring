@@ -15,11 +15,12 @@ import java.util.Optional;
 
 
 //@Component
-@Transactional
+@Transactional //join에만 해줘도 된다
 public class MemberService {
     private final MemberRepository memberRepository;
 
     public MemberService(MemberRepository memberRepository) {
+
         this.memberRepository = memberRepository;
     }
 
