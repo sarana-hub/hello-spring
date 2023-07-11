@@ -1,4 +1,3 @@
-/*
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
@@ -41,4 +40,3 @@ public class JpaMemberRepository implements MemberRepository{
                 .getResultList();
     }
 }
-*/
