@@ -1,4 +1,3 @@
-/*
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
@@ -6,6 +5,7 @@ import hello.hellospring.domain.Member;
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
+
 
 public class JpaMemberRepository implements MemberRepository{
     private final EntityManager em;
@@ -16,7 +16,7 @@ public class JpaMemberRepository implements MemberRepository{
 
     @Override
     public Member save(Member member) {
-        em.persist(member);
+        em.persist(member); //영구저장
         return member;
     }
 
@@ -41,4 +41,3 @@ public class JpaMemberRepository implements MemberRepository{
                 .getResultList();
     }
 }
-*/

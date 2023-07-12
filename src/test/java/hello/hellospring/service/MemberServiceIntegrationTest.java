@@ -25,10 +25,11 @@ class MemberServiceIntegrationTest {
     @Autowired MemberRepository memberRepository;
 
     @Test
+    //@Commit
     void join() throws Exception{
         //Given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("jj");
         //When
         Long saveId = memberService.join(member);
         //Then
