@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 public class SpringConfig {
 
     private final MemberRepository memberRepository;
-    @Autowired  //생성자 하나만 있을땐 생략 가능
+    //@Autowired  //생성자 하나만 있을땐 생략 가능
     public SpringConfig(MemberRepository memberRepository) {
 
         this.memberRepository = memberRepository;
