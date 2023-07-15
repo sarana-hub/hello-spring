@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 /** 시간 측정 AOP 등록 */
 
-@Component
+@Component //스프링빈으로 등록
 @Aspect
 public class TimeTraceAop {
 
@@ -14,7 +14,7 @@ public class TimeTraceAop {
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 
         long start = System.currentTimeMillis();
-        System.out.println("START: " + joinPoint.toString());
+        System.out.println("START: " + joinPoint.toString());   //어떤 메소드 호출되는지까지 출력
         try {
             return joinPoint.proceed();
         } finally {
