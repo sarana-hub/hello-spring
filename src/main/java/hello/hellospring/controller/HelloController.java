@@ -21,7 +21,8 @@ public class HelloController {
     public String helloMvc(@RequestParam("name") String name, Model model) {
         model.addAttribute("name", name);   // model(name:spring)
         return "hello-template";
-        //@RequestParam 값(name 값) 필수! http://localhost:8080/hello-mvc?name=spring
+        //@RequestParam 값(name 값) 필수!
+        // http://localhost:8080/hello-mvc?name=spring
         // http://localhost:8080/hello-mvc 실행하면 에러
     }
 
