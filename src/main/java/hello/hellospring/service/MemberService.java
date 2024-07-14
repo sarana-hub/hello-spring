@@ -14,6 +14,7 @@ import java.util.Optional;
 
 
 @Transactional
+//@Service  //스프링 빈으로 등록
 public class MemberService {
 
     private final MemberRepository memberRepository;

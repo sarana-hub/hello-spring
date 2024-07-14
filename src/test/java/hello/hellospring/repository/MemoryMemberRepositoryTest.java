@@ -5,10 +5,12 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.api.ObjectAssert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
+
 
 class MemoryMemberRepositoryTest {
     MemoryMemberRepository repository = new MemoryMemberRepository();
@@ -35,6 +37,7 @@ class MemoryMemberRepositoryTest {
 
         //System.out.println("result="+(result==member));
         assertThat(member).isEqualTo(result);
+
     }
 
     @Test
@@ -44,7 +47,7 @@ class MemoryMemberRepositoryTest {
         member1.setName("spring1");
         repository.save(member1);
         Member member2 = new Member();
-        member2.setName("spring2");
+        member2.setName("spring1");
         repository.save(member2);
         //when
         Member result = repository.findByName("spring1").get();
