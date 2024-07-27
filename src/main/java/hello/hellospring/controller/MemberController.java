@@ -33,7 +33,7 @@ public class MemberController {
     }
 
 
-    /** 회원을 등록하는 기능*/
+    /** 회원 등록 기능*/
     @PostMapping("/members/new")
     public String create(MemberForm form) {
         Member member = new Member();
@@ -46,7 +46,7 @@ public class MemberController {
     }
 
 
-    /** 조회 기능*/
+    /** 회원 조회 기능*/
     @GetMapping("/members")
     public String list(Model model) {
         List<Member> members = memberService.findMembers();

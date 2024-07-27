@@ -4,6 +4,7 @@
 <body>
 <div class="container">
     <div>
+
         <table>
             <thead>
             <tr>
@@ -11,6 +12,7 @@
                 <th>이름</th>
             </tr>
             </thead>
+
             <tbody>
             <tr th:each="member : ${members}">
                 <td th:text="${member.id}"></td>
@@ -18,6 +20,7 @@
             </tr>
             </tbody>
         </table>
+
     </div>
 </div> <!-- /container -->
 </body>
