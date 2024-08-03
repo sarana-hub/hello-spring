@@ -19,7 +19,7 @@ import java.util.Optional;
 public class JdbcTemplateMemberRepository implements MemberRepository {
     private final JdbcTemplate jdbcTemplate;
 
-    //@Autowired  //생성자 하나만 있을땐 생략 가능
+    //@Autowired  //생성자 "하나"만 있을땐 생략 가능
     public JdbcTemplateMemberRepository(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -53,6 +53,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
     public List<Member> findAll() {
         return jdbcTemplate.query("select * from member", memberRowMapper());
     }
+
 
     private RowMapper<Member> memberRowMapper() {
         return (rs, rowNum) -> {

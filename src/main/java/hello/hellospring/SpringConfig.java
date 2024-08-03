@@ -15,17 +15,29 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private final MemberRepository memberRepository;
+    /*private final MemberRepository memberRepository;
     //@Autowired  //생성자 하나만 있을땐 생략 가능
     public SpringConfig(MemberRepository memberRepository) {
 
         this.memberRepository = memberRepository;
+    }*/
+
+    private DataSource dataSource;
+
+    public SpringConfig(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
-    @Bean
+    @Bean   //스프링빈 등록 //memberService → memberRepository
     public MemberService memberService() {
+        return new MemberService(memberRepository());
+    }
 
-        return new MemberService(memberRepository);
+    @Bean   //스프링빈 등록 //JdbcTemplateMemberRepository(dataSource) → memberRepository
+    public MemberRepository memberRepository() {
+        // return new MemoryMemberRepository();
+        // return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 
     /*@Bean
