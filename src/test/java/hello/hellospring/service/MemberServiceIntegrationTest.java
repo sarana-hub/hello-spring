@@ -18,9 +18,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest     //스프링 컨테이너와 테스트를 함께 실행
 @Transactional //테스트 시작 전에 트랜잭션을 시작하고, 테스트 완료 후에 항상 롤백한다
+// 각 테스트마다 clearStore할 필요 없어짐
 class MemberServiceIntegrationTest {
 
-    //@Autowired로 의존관계 넣어주기 (DI)
+    //@BeforeEach로 각 테스트 실행 전마다 의존관계 넣어주는 대신에
+    //@Autowired로 회원서비스와 회원 리포지토리를 사용할 수 있게 의존관계 넣어주기
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
 
