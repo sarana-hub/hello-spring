@@ -8,11 +8,15 @@ import java.util.Optional;
 
 
 public class JpaMemberRepository implements MemberRepository{
-    private final EntityManager em;
+
+    //JPA는 EntityManager로 모든것이 동작
+    //반드시 EntityManager 주입받아야 한다
+    private EntityManager em;
 
     public JpaMemberRepository(EntityManager em) {
         this.em = em;
     }
+
 
     @Override
     public Member save(Member member) {
@@ -22,7 +26,7 @@ public class JpaMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findById(Long id) {
-        Member member = em.find(Member.class, id);
+        Member member = em.find(Member.class, id);  //em.find(조회할 타입, PK 값)
         return Optional.ofNullable(member);
     }
 

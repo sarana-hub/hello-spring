@@ -18,18 +18,24 @@ public class SpringConfig {
     /*private final MemberRepository memberRepository;
     //@Autowired  //생성자 하나만 있을땐 생략 가능
     public SpringConfig(MemberRepository memberRepository) {
-
         this.memberRepository = memberRepository;
     }*/
 
-    private DataSource dataSource;
+    /*private DataSource dataSource;
 
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
+    }*/
+
+    private EntityManager em;
+    //JPA를 사용하도록 스프링 설정
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
 
     @Bean   //스프링빈 등록 //memberService → memberRepository
     public MemberService memberService() {
+
         return new MemberService(memberRepository());
     }
 
@@ -37,7 +43,8 @@ public class SpringConfig {
     public MemberRepository memberRepository() {
         // return new MemoryMemberRepository();
         // return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+        //return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 
     /*@Bean

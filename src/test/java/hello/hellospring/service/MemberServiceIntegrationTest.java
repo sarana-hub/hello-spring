@@ -27,7 +27,7 @@ class MemberServiceIntegrationTest {
     @Autowired MemberRepository memberRepository;
 
     @Test
-    //@Commit
+    //@Commit   //Commit하면 DB에 반영됨
     void join() throws Exception{
         //Given
         Member member = new Member();

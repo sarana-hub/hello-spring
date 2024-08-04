@@ -13,8 +13,8 @@ import java.util.Optional;
 
 
 
-@Transactional
-//@Service  //스프링 빈으로 등록
+//JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다
+@Transactional  //해당 클래스의 메서드를 실행할 때 트랜잭션을 시작하고, 메서드가 정상 종료되면 트랜잭션을 커밋
 public class MemberService {
 
     private final MemberRepository memberRepository;
