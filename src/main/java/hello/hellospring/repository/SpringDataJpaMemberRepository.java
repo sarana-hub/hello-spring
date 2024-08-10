@@ -7,6 +7,8 @@ import java.util.Optional;
 
 
 public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository {
+    //JpaRepository<Member, Member의 PK타입>
 
+    @Override
     Optional<Member> findByName(String name);
 }
