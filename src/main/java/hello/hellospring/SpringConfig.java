@@ -45,7 +45,7 @@ public class SpringConfig {
         //return new JpaMemberRepository(em);
     }*/
 
-    /*@Bean
+    /*@Bean  //시간 측정 AOP - 실무에서는 스프링빈에 직접 등록
     public TimeTraceAop timeTraceAop() {
         return new TimeTraceAop();
     }*/

@@ -22,7 +22,7 @@ public class MemberController {
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
 
-        //실제 Proxy가 주입되는지 콘솔에 출력해서 확인해보자
+        //실제 Proxy가 주입되는지 콘솔에 출력해서 확인해보자 -> 복제된 가짜memberService가 출력된다
         //System.out.println("memberService= "+memberService.getClass());
     }
 

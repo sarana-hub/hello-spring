@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class TimeTraceAop {
 
-    @Around("execution(* hello.hellospring..*(..))")
+    //원하는 적용 대상을 선택할 수 있다. @Around("execution(*패키지명..*(..))")
+    @Around("execution(* hello.hellospring..*(..))")    //hello.hellospring 패키지 하위에 모두 적용
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 
         long start = System.currentTimeMillis();
-        System.out.println("START: " + joinPoint.toString());   //어떤 메소드 호출되는지까지 출력
+        System.out.println("START: " + joinPoint.toString());   //어떤 메소드 호출되는지 출력
         try {
             return joinPoint.proceed();
         } finally {
